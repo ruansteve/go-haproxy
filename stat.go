@@ -83,7 +83,7 @@ type Stat struct {
 	AgentFall     uint64 `csv:"agent_fall"`
 	AgentHealth   uint64 `csv:"agent_health"`
 	Addr          string `csv:"addr"`
-	Cookie        uint64 `csv:"cookie"`
+	Cookie        string `csv:"cookie"`
 	Mode          string `csv:"mode"`
 	Algo          string `csv:"algo"`
 	ConnRate      uint64 `csv:"conn_rate"`
