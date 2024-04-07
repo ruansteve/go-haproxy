@@ -3,7 +3,7 @@ package haproxy_test
 import (
 	"fmt"
 
-	"github.com/bcicen/go-haproxy"
+	"github.com/ruansteve/go-haproxy"
 )
 
 func ExampleHAProxyClient_Stats() {
