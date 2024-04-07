@@ -3,7 +3,7 @@ package haproxy
 import (
 	"fmt"
 
-	"github.com/ruansteve/kvcodec"
+	"github.com/ruansteve/go-haproxy/kvcodec"
 )
 
 // Response from HAProxy "show info" command.
