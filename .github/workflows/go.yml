@@ -22,7 +22,7 @@ jobs:
         go-version-file: 'go.mod'
     
     - name: install Haproxy 2.8
-      run: apt-get install -y --no-install-recommends software-properties-common && add-apt-repository -y ppa:vbernat/haproxy-2.8 && apt-get -y install haproxy && ls
+      run: apt-get install -y --no-install-recommends software-properties-common && add-apt-repository -y ppa:vbernat/haproxy-2.8 && apt-get -y install haproxy
     
     - name: configure stats
       run: sed -i 's/stats socket \/run\/haproxy\/admin.sock mode 660 level admin/stats socket \/var\/run\/haproxy.sock mode 660 level admin expose-fd listeners/g' /etc/haproxy/haproxy.cfg && service haproxy reload
