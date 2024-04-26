@@ -43,7 +43,7 @@ func (h *HAProxyClient) RunCommand(cmd string) (*bytes.Buffer, error) {
 	}
 
 	if strings.HasPrefix(result.String(), "Unknown command") {
-		return nil, fmt.Errorf("Unknown command: %s", cmd)
+		return nil, fmt.Errorf("unknown command: %s", cmd)
 	}
 
 	return result, nil

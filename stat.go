@@ -118,7 +118,6 @@ func (h *HAProxyClient) Stats() (stats []*Stat, err error) {
 	}
 
 	reader := csv.NewReader(res)
-	reader.TrailingComma = true
 	err = gocsv.UnmarshalCSV(reader, &stats)
 	if err != nil {
 		return nil, fmt.Errorf("error reading csv: %s", err)
