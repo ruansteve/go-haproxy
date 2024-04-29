@@ -14,15 +14,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-
+    - uses: actions/checkout@v4
+    
     - name: Set up Go
-      uses: actions/setup-go@v4
+      uses: actions/setup-go@v5
       with:
-        go-version: '1.20'
-
-    - name: Build
-      run: go build -v ./...
+        go-version-file: 'go.mod'
+    
+    - name: install Haproxy 2.8
+      run: apt-get install -y --no-install-recommends software-properties-common && add-apt-repository -y ppa:vbernat/haproxy-2.8 && apt-get -y install haproxy
+    
+    - name: configure stats
+      run: sed -i 's/stats socket \/run\/haproxy\/admin.sock mode 660 level admin/stats socket \/var\/run\/haproxy.sock mode 660 level admin expose-fd listeners/g' /etc/haproxy/haproxy.cfg && service haproxy reload
+    
+    - name: Run golangci-lint
+      uses: golangci/golangci-lint-action@v4
 
     - name: Test
       run: go test -v ./...
+      
+    - name: Build
+      run: go build -v ./...
+

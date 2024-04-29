@@ -88,7 +88,7 @@ func newStructFields(rType reflect.Type) (structFields, error) {
 }
 
 func trim(s string) string {
-	re := regexp.MustCompile("(\\S+|\\S+)")
+	re := regexp.MustCompile(`(\S+|\S+)`)
 	return strings.Join(re.FindAllString(s, -1), " ")
 }
 
