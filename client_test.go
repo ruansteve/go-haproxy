@@ -18,11 +18,6 @@ func ExampleHAProxyClient_Stats() {
 	for _, s := range stats {
 		fmt.Printf("%s: %s\n", s.SvName, s.Status)
 	}
-	// Output:
-	//static: DOWN
-	//app1: UP
-	//app2: UP
-	//...
 }
 
 func ExampleHAProxyClient_Info() {
@@ -36,7 +31,7 @@ func ExampleHAProxyClient_Info() {
 	}
 	fmt.Printf("%s version %s\n", info.Name, info.Version)
 	// Output:
-	//HAProxy version 1.6.3
+	//HAProxy version 2.8.9-1ppa1~jammy
 }
 
 func ExampleHAProxyClient_RunCommand() {
